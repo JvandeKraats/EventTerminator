@@ -1,0 +1,33 @@
+name: Deploy Infrastructure
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  terraform:
+    name: Terraform
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: az cli login
+        uses: Azure/cli@v1.0.7
+        with:
+          inlineScript:
+            az login --service-principal --username ${{ secrets.ARM_SP_CLIENTID }} --password ${{ secrets.ARM_SP_PASSWORD }} --tenant ${{ secrets.ARM_TENANT_ID }}
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: "1.0.2"
+      - name: Terraform Init
+        run: terraform init
+        working-directory: IaC
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -out=tfplan
+        working-directory: IaC
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve tfplan
+        working-directory: IaC

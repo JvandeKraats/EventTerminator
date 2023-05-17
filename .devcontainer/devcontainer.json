@@ -1,0 +1,17 @@
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:0",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli": "latest",
+        "ghcr.io/devcontainers/features/terraform": "latest"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "github.vscode-github-actions",
+                "hashicorp.terraform",
+                "GitHub.copilot"
+            ]
+        }
+    }
+}
