@@ -1,1 +1,3 @@
 IaC/.terraform/
+src/EventTerminator/obj/
+src/EventTerminator/bin/

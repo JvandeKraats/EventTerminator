@@ -11,7 +11,8 @@
             "extensions": [
                 "github.vscode-github-actions",
                 "hashicorp.terraform",
-                "GitHub.copilot"
+                "GitHub.copilot",
+                "eamodio.gitlens"
             ]
         }
     }
