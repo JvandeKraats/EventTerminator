@@ -56,7 +56,7 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
       - name: Publish
-        run: dotnet publish --configuration Release --no-build --output ./published
+        run: dotnet publish --configuration Release --no-build --output ./published ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
         with:
