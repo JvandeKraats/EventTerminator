@@ -17,6 +17,11 @@ resource "azurerm_linux_web_app" "webapp" {
   location            = azurerm_service_plan.sp.location
   service_plan_id     = azurerm_service_plan.sp.id
   depends_on = [ azurerm_resource_group.rg, azurerm_service_plan.sp ]
+  
 
-  site_config {}
+  site_config {
+    application_stack {
+      dotnet_version = "7.0"
+    }
+  }
 }
