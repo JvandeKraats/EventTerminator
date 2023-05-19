@@ -12,7 +12,7 @@ env:
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
   
   TF_VAR_app_service_name: Outlook-Calendar-Changes-Receiver
-  AZURE_WEBAPP_PACKAGE_PATH: './src/EventTerminator'
+  AZURE_WEBAPP_PACKAGE_PATH: './src/EventTerminator/EventTerminator.csproj'
   AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
 jobs:
