@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "rg_${var.app_service_name}"
+  name     = "rg-${var.app_service_name}"
   location = "West Europe"
 }
 
